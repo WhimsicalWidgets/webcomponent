@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Wisdom Chat Examples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .demo-section {
+            margin: 40px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .component-info {
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .code-block {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        h1, h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Digital Wisdom Chat Web Components</h1>
+    
+    <div class="component-info">
+        <h3>Available Components:</h3>
+        <ul>
+            <li><strong>digital-wisdom-chat</strong> - iframe-based chat widget</li>
+            <li><strong>browser-ai-chat</strong> - fully embedded AI chat using @mlc-ai/web-llm</li>
+        </ul>
+    </div>
+
+    <div class="demo-section">
+        <h2>1. Digital Wisdom Chat (iframe-based)</h2>
+        <div class="component-info">
+            <p><strong>Description:</strong> Embeds an external chat interface via iframe.</p>
+            <p><strong>Requirements:</strong> Valid chat URL in the <code>source</code> attribute.</p>
+        </div>
+        
+        <div class="code-block">
+            <strong>Usage:</strong><br>
+            <digital-wisdom-chat source="https://chat.openai.com"></digital-wisdom-chat>
+        </div>
+        
+        <p><strong>Live Example:</strong></p>
+        <!-- Replace with your actual chat URL -->
+        <digital-wisdom-chat source="https://example.com"></digital-wisdom-chat>
+    </div>
+
+    <div class="demo-section">
+        <h2>2. Browser AI Chat (fully embedded)</h2>
+        <div class="component-info">
+            <p><strong>Description:</strong> Runs AI locally in the browser using WebGPU and @mlc-ai/web-llm.</p>
+            <p><strong>Requirements:</strong> Modern browser with WebGPU support (Chrome 113+, Edge 113+).</p>
+            <p><strong>Features:</strong></p>
+            <ul>
+                <li>No server required - runs completely in browser</li>
+                <li>Uses Phi-3-mini-4k-instruct model by default</li>
+                <li>Real-time chat interface with loading states</li>
+                <li>Automatic conversation history</li>
+            </ul>
+        </div>
+        
+        <div class="code-block">
+            <strong>Basic Usage:</strong><br>
+            <browser-ai-chat></browser-ai-chat>
+            <br><br>
+            <strong>With Custom Model:</strong><br>
+            <browser-ai-chat model="Phi-3-mini-4k-instruct-q4f16_1"></browser-ai-chat>
+        </div>
+        
+        <p><strong>Live Example:</strong></p>
+        <browser-ai-chat></browser-ai-chat>
+        
+        <div style="margin-top: 20px; padding: 15px; background-color: #fff3cd; border-radius: 5px;">
+            <strong>⚠️ Note:</strong> The Browser AI component requires WebGPU support. If you see initialization issues, 
+            please ensure you're using a modern browser (Chrome 113+ or Edge 113+).
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Both Components Together</h2>
+        <p>You can use both components on the same page:</p>
+        
+        <div class="code-block">
+            <digital-wisdom-chat source="https://your-chat-url.com"></digital-wisdom-chat><br>
+            <browser-ai-chat model="Phi-3-mini-4k-instruct-q4f16_1"></browser-ai-chat>
+        </div>
+    </div>
+
+    <script type="module" src="/dist/digital-wisdom-chat.js"></script>
+</body>
+</html>
